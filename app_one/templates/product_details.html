@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+    {% block content %}
+<div class="div  bg-green-300 border border-slate-950 rounded-md px-3 py-3">
+
+    <p class=" text-red-600 text-5xl font-medium text-center mb-5 px-4 ">Here is product
+        details</p>
+    <img class="w-[10vw]" src="{{products.image.url}}" alt>
+    <p> {{products.name}} </p>
+    <p> {{products.price}} </p>
+    <p> {{products.created_At}} </p>
+    <p> {{products.description}} </p>
+    <button
+        class="text-center bg-green-400 text-white font-medium rounded-md px-3 py-2 mb-3"
+        type="button">
+        <a href="{% url 'update_product' products.pk %}">Update</a> </button>
+    <button
+        class="text-center bg-red-400 text-white font-medium rounded-md px-3 py-2"
+        type="button"><a
+            href="{% url 'delete' products.pk %}">delete</a></button>
+</div>
+
+    {% endblock %}
+

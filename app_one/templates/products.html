@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% if  products%}
+{% for item in products %}
+<div class="card  border border-blue-300 w-[30vw]  bg-green-200 border border-slate-700 rounded-md px-3 py-3">
+    <!-- <a href="{url 'product' item.pk}">  </a> -->
+    <img class="w-[10vw]" src="{{item.image.url}}" alt="">
+    <p class="name text-red-400 text-xl font-bold"> {{item.name}} </p>
+    <!-- destructuring process -->
+    <p class="price"> {{item.price}} ₹</p>
+    <p class="Date">  {{item.created_At}} </p>
+    <p class="Description">{{item.description}} </p>
+    <a class="text-pink-600 text-xl font-bold" href="{% url 'product_details' item.pk%}">Go to product details</a>
+
+</div>
+<p class="mb-5"></p>
+{% endfor %}
+
+{% else %}
+<p>No products found</p>
+{% endif  %}
+{% endblock %}
+
+

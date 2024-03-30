@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello test</h1>
-<h1>Add on file</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Django demo</title>
+    </head>
+    <div class="h-full bg-white ">
+        <h1 class="text-center text-blue-800 font-bold text-5xl pb-5"> <a href="{% url 'home' %}">Home Market</a> 
+            </h1>
+        <div class="flex flex-col justify-center items-center">
+            <button
+                class="bg-green-700 rounded-md px-2 py-2 mb-3 text-white text-2xl font-medium"><a
+                    href="{% url 'add_Products'  %}">Add New
+                    Product</a></button>
+            {% block content%}
+
+            {% endblock %}
+
+        </div>
+    </body>
 </html>
