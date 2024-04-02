@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_one',
-
+    'app_two',
 ]
 
 MIDDLEWARE = [
@@ -127,12 +127,30 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+# In a Django project, the STATIC_URL and STATICFILES_DIRS settings are used to
+# configure how static files are handled.
+
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+# STATIC_URL: This setting specifies the base URL to serve static files from. When you
+# reference static files in your templates or code, Django uses this URL as the prefix.
+# For example, if STATIC_URL is set to '/static/', then static files will be served from
+# URLs like /static/css/style.css or /static/js/script.js.
 
+# STATICFILES_DIRS: This setting is a list of directories where Django will look for
+# static files. In the example you provided, it's set to [os.path.join(BASE_DIR, 'static')],
+# which means that Django will look for static files in a directory named 'static' within
+# your project's base directory (BASE_DIR). This is useful for storing project-specific static
+# files that are not part of any app.
+
+# 1. When Django receives a request for a static file (e.g., a CSS file or JavaScript file),
+#     it looks for that file in the directories specified in STATICFILES_DIRS.
+# 2. If the requested file is found in one of these directories, Django serves it at the URL
+#     pecified by STATIC_URL. For example, if the requested file is style.css and STATIC_URL
+#     is '/static/', Django serves the file at /static/style.css.
 
 MEDIA_URL = '/images/'
 
@@ -140,6 +158,27 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# 1. MEDIA_URL: This setting specifies the base URL for serving media files. When
+# you upload files using Django's file upload functionality, the uploaded files
+# will be served from URLs prefixed with this value. For example, if MEDIA_URL is set
+# to '/images/', then media files will be served from URLs like /images/my_image.jpg.
+
+# 2.MEDIA_ROOT: This setting specifies the directory where uploaded media files are stored
+# on the filesystem. When you upload files through Django's file upload functionality,
+# they are stored in this directory. In the example you provided, MEDIA_ROOT is set
+# to os.path.join(BASE_DIR, 'static/images'), which means that uploaded media files will be
+# stored in a directory named 'images' within the 'static' directory of your project's base
+# directory (BASE_DIR).
+
+# 3.STATIC_ROOT: This setting specifies the directory where static files will be collected for
+# deployment. When you run Django's collectstatic management command, Django copies all static
+# files from various locations in your project to this directory. This is useful for serving static
+# files efficiently with a web server like Nginx or Apache in production. In the example you provided,
+# STATIC_ROOT is set to os.path.join(BASE_DIR, 'staticfiles'), which means that collected static
+# files will be stored in a directory named 'staticfiles' within your project's base directory (BASE_DIR).
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

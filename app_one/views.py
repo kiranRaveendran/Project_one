@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from . models import Product
-from .forms import Product_Form
+from .forms import *
 # Create your views here.
 
 
@@ -34,6 +34,19 @@ def add_Products(request):
         'form': form_variable
     }
     return render(request, 'add_product.html', context)
+
+
+def register_stud(request):
+    stud_form = School_database_form()
+    if request.method == 'POST':
+        stud_form = School_database_form(request.POST, request.FILES)
+        if stud_form.is_valid():
+            stud_form.save()
+            return redirect('home')
+    else:
+        stud_form = School_database_form()
+    context = {'f': stud_form}
+    return render(request, 'add_stud.html', context)
 
 
 def update_Product(request, pk):

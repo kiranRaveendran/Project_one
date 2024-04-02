@@ -18,13 +18,14 @@ class Product(models.Model):
 
 # have to refer and go through the types of fields ,enum field, choice field etc...
 
-# class school_database(models.Model):
-#     name = models.CharField(blank=False, null=False, max_length=200)
-#     addres = models.TextField()
-#     phone = models.CharField(blank=False, null=False, max_length=10)
 
-#     def __str__(self) -> str:
-#         return self.phone
+class school_database(models.Model):
+    name = models.CharField(blank=False, null=False, max_length=200)
+    address = models.TextField()
+    phone = models.CharField(blank=False, null=False, max_length=10)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 # class vehicle_Data(models.Model):
