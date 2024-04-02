@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>Padimel School</h1>
-    <button type="submit"><a href="{% url 'add_student'%}">Add Student</a></button>
+
+    <h1 class="text-3xl mb-5 font-bold"><a href="{% url 'home2' %}">Padimel School</a></h1>
+    <button class="border border-black rounded-md px-2 py-2 bg-slate-300" type="submit"><a href="{% url 'add_student'%}">Add Student</a></button>
+    <button class="border border-black rounded-md px-2 py-2 bg-slate-300" type="submit"><a href="{% url 'update_student'%}">Update Student</a></button>
+    <button class="border border-black rounded-md px-2 py-2 bg-slate-300" type="submit"><a href="{% url 'student_Details'%}">Student Details</a></button>
+
     {% block info %}
     
     {% endblock %}

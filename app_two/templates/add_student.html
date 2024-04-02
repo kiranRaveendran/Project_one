@@ -1,12 +1,13 @@
 {% extends 'home.html' %}
 
 {% block info %}
-<h1>Student Registeration</h1>
-
-<form method="POST"  enctype="multipart/form-data">
+<h1 class="mt-5">Student Registeration</h1>
+<div class="px-10 mt-4">
+<form class="w-[30vw] border border-black rounded-md px-10 py-4" method="POST"  enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Register</button>
 </form>
+</div>
 {% endblock %}
 

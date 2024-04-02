@@ -1,12 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1 class="text-red-500">REgisteration successfully completed</h1>
+
+{% extends 'home.html' %}
+
+   {% block info %}
+   {% for item in data %} 
+   <div class="main flex justify-center items-center mt-4   ">
+<div class="border border-slate-400 w-[30vw] bg-green-200">
+    <p> {{item.name}} </p>
+    <p> {{item.student_id}} </p>
+    <img class="w-[10vw]" src="{{ item.image.url }}" alt="">
+    <p> {{item.address}} </p>
+    <a class="text-white bg-yellow-500 rounded-md px-2 py-1" href="{% url 'student' item.pk %}">More details</a>
+    <p class="mb-3"> </p>
+</div>
+</div>
+
+ <p class="mt-4"></p>
+{% endfor %}
+{% endblock %}
 </body>
 </html>

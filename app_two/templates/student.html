@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+
+
+ {% block info %}
+<div class="main flex justify-center items-center mt-4   ">
+<div class="border border-slate-400 w-[30vw] bg-green-200">
+    <p> {{student_dl.name}} </p>
+    <p> {{student_dl.student_id}} </p>
+    <img class="w-[10vw]" src="{{ student_dl.image.url }}" alt="">
+    <p> {{student_dl.address}} </p>
+    <p class="mb-5"></p>
+    <div class="px-3 py-3">
+    <a class="bg-red-600 rounded-md px-3 py-2" href="{% url 'delete_student' student_dl.pk %}">Delete</a>
+</div>
+</div>
+</div>
+ <p class="mt-4"></p>
+
+{% endblock %}
